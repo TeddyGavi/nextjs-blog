@@ -4,12 +4,25 @@ import utilStyles from '../styles/utils.module.css';
 import { getSortedPostsData } from '../lib/posts';
 
 export async function getStaticProps() {
-  const allPostsData = getSortedPostsData();
+  const allPostsData = await getSortedPostsData();
+
+  /*
+   const res = await fetch('https://swapi.dev/api/people/')
+  const allPostsData = await res.json();
+   console.log(allPostsData)
+  return {
+    props: {
+      data: allPostsData.results,
+    },
+  };
+ */
+  
   return {
     props: {
       allPostsData,
-    },
-  };
+    }
+  }
+ 
 }
 
 
@@ -26,6 +39,12 @@ export default function Home({ allPostsData }) {
           <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
         </p>
       </section>
+     {/*  <ul>
+        {data.map(x => (
+          <li>{x.name}</li>
+        ))}
+
+      </ul> */}
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>
         <ul className={utilStyles.list}>
