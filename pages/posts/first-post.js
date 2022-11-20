@@ -7,7 +7,7 @@ export default function FirstPost() {
   return (
     <Layout>
     <Head>
-      <title> First Post</title>
+      <title className="p-4"> First Post</title>
     </Head>
       <h1>First Post</h1>
       <h2>
